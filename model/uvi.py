@@ -25,7 +25,7 @@ class RGB_UVI(nn.Module):
         device = img.device
         dtypes = img.dtype
 
-        # Extract HVI components: hue, saturation, value
+        # Extract UVI components: hue, saturation, value
         hue = torch.Tensor(img.shape[0], img.shape[2], img.shape[3]).to(device).to(dtypes)
         value = img.max(1)[0].to(dtypes)
         img_min = img.min(1)[0].to(dtypes)
@@ -59,6 +59,8 @@ class RGB_UVI(nn.Module):
         saturation = (1 - self.alpha_S) * saturation + self.alpha_S * s_lab.unsqueeze(1)
         c = torch.sigmoid(self.color_contrast(a, b, 5).permute(0, 2, 3, 1)).permute(0, 3, 1, 2)
 
+        # More key details of the code will be released after publication.
+        
         H = color_sensitive * saturation * ch * c
         V = color_sensitive * saturation * cv * c
         I = value
