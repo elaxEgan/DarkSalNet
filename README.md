@@ -12,8 +12,30 @@
 ## Datasets
 The synthetic dataset will be made available after the publication.
 
-## Model evaluation
+## Resources
 
+🔗 **Pretrained Weights**  
+- [Download DarkSalNet Weights (Baidu)](https://pan.baidu.com/s/1FcqegbFOtavmv4FZLpipEg&pwd=)  
+
+🔗 **Saliency Maps**  
+- [Download Saliency Maps (Baidu)](https://pan.baidu.com/s/1E5RBCvGUhaOTOUmxoOVFKA&pwd=)  
+
+
+---
+## Model train
+
+Download the pre-trained model weights and dataset.
+Modify the dataset path in the config file or training script.
+Run training:
+```bash
+python train.py
+
+```
+
+## Model evaluation
+Download the trained LWMNet weights.
+Set the weight paths in inference.py.
+Run inference:
 ```
 python inference.py
 ```
